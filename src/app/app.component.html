@@ -1,0 +1,65 @@
+<h1>Using Angular with WebSockets</h1>
+<br />
+<h2>Quote: {{ stockQuote }}</h2>
+<br />
+
+
+<table class="table table-hover">
+  <thead>
+      <tr>
+          <th>Symbol</th>
+          <th>Sell Price</th>
+          <th>Buy Price</th>
+          <th>LTP</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let quote of quoteprices;" (click)="go(quote)">
+          <td>{{quote.Symbol}}</td>
+          <td>{{quote.Price}}</td>
+          <td>{{quote.PriceB}}</td>
+          <td>{{quote.LTP}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<div class="well well-lg">
+  Selected Row : <strong>{{selectedRow}}</strong>
+</div>
+
+<div class="example-container mat-elevation-z8">
+    
+      <mat-table #table [dataSource]="quoteprices">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> "ayub" {{element.Symbol}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+    <!--
+<table>
+    <tr>
+       <td>symbol</td>
+       <td>price</td>
+     </tr>
+     <tr *ngFor="let quote of quoteprices">
+       <td>{{quote.Symbol}}</td>
+       <td>{{quote.Price}}</td>
+     </tr>
+</table>
+   
+
+-->

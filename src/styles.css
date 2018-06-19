@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar-nav a.active {
+  background-color: #e7e7e7 !important;
+  color: #555 !important;
+}
+
+
+  .table tr.active td {
+    background-color:#123456 !important;
+    color: white;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+ }
+ table {
+  width: 100%;
+}
+
+th {
+  height: 50px;
+  text-align: left;
+}
+
+tr { line-height: 50px; }
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css" 
